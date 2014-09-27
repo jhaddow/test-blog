@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<!-- stylesheets needed for text-angular -->
+	<link rel='stylesheet' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'>
+	<link rel='stylesheet' href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css'>
+	<link rel="stylesheet" href="style.css">
+	<title>Edit your blog</title>
+</head>
+<body>
+	<!-- View for editing blog -->
+	<div ng-app="blog" ng-controller="createBlogCtrl" class="container app">
+		<!-- text-angular div -->
+		<div text-angular="text-angular" name="blogcontent" ng-model="blogcontent"></div>
+		<button ng-click="ctrlPostData()">Post Blog</button>
+		<button ng-click="updatePost()"> Update </button>
+		<!-- repeat for every blog post -->
+		<div ng-repeat="crap in blogPosts" >
+			<div ng-bind-html="crap.content">{{crap.content}}</div>
+			<button ng-click="delPost()"> Delete Post </button>
+			<button ng-click='editPost()'> Edit Post </button>
+		</div>
+
+	</div>
+	<!-- angular and text-angular cdn's -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+	<script src='http://cdnjs.cloudflare.com/ajax/libs/textAngular/1.2.2/textAngular-sanitize.min.js'></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/textAngular/1.2.2/textAngular.min.js"></script>
+
+	<!-- parse cdn -->
+	<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.19.min.js"></script>
+
+	<!-- files for module, headers, controller, and service -->
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="defaultHeaders.js"></script>
+	<script type="text/javascript" src="blogService.js"></script>
+	<script type="text/javascript" src="createBlogCtrl.js"></script>
+	
+</body>
+</html>
